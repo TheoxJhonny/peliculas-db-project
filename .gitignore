@@ -1,0 +1,9 @@
+# Evitar subir variables privadas
+.env
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Configuración de VS Code 
+.vscode/

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Películas DB</title>
+</head>
+<body>
+    <h1>🎬 Base de Datos de Películas</h1>
+
+    <form action="/agregar" method="POST">
+        <input type="text" name="titulo" placeholder="Título" required>
+        <input type="number" name="año" placeholder="Año" required>
+        <input type="text" name="genero" placeholder="Género" required>
+        <button type="submit">Agregar Película</button>
+    </form>
+
+    <h2>📌 Lista de Películas</h2>
+    <ul>
+        {% for p in peliculas %}
+            <li>
+                <strong>{{ p["titulo"] }}</strong> ({{ p["año"] }}) - {{ p["genero"] }}
+                <a href="/eliminar/{{ p['titulo'] }}">❌ Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
