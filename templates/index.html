@@ -3,25 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Películas DB</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>🎬 Base de Datos de Películas</h1>
 
+<header>
+    <h1>🎬 Películas DB</h1>
+</header>
+
+<section class="formulario">
+    <h2>➕ Agregar Película</h2>
     <form action="/agregar" method="POST">
         <input type="text" name="titulo" placeholder="Título" required>
         <input type="number" name="año" placeholder="Año" required>
         <input type="text" name="genero" placeholder="Género" required>
-        <button type="submit">Agregar Película</button>
+        <button type="submit" class="btn-add">Agregar</button>
     </form>
+</section>
 
+<section class="lista">
     <h2>📌 Lista de Películas</h2>
     <ul>
         {% for p in peliculas %}
-            <li>
-                <strong>{{ p["titulo"] }}</strong> ({{ p["año"] }}) - {{ p["genero"] }}
-                <a href="/eliminar/{{ p['titulo'] }}">❌ Eliminar</a>
-            </li>
+        <li class="movie-card">
+    <img src="{{ p.get('poster', '') }}" alt="Poster" class="poster">
+    <div>
+        <strong>{{ p["titulo"] }}</strong> ({{ p["año"] }}) - {{ p["genero"] }}
+        <a href="/eliminar/{{ p['titulo'] }}" class="delete-btn">❌ Eliminar</a>
+        <a href="/editar/{{ p['titulo'] }}" class="edit-btn">✏ Editar</a>
+    </div>
+        </li>
         {% endfor %}
     </ul>
+</section>
+
 </body>
 </html>

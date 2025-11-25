@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Película</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>✏ Editar Película</h1>
+</header>
+
+<section class="formulario">
+    <form action="/actualizar" method="POST">
+        <input type="hidden" name="titulo_original" value="{{ pelicula['titulo'] }}">
+
+        <input type="text" name="titulo" value="{{ pelicula['titulo'] }}" required>
+        <input type="number" name="año" value="{{ pelicula['año'] }}" required>
+        <input type="text" name="genero" value="{{ pelicula['genero'] }}" required>
+
+        <button type="submit" class="btn-edit">Guardar Cambios</button>
+    </form>
+
+    <a href="/" class="btn-add">⬅ Volver</a>
+</section>
+
+</body>
+</html>
